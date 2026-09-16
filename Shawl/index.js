@@ -54,8 +54,8 @@ createApp({
   computed: {
     themeClasses() {
       return this.lightMode
-        ? "bg-stone-100 text-slate-900"
-        : "bg-slate-950 text-slate-100";
+        ? "bg-stone-100 text-slate-900 theme-light"
+        : "bg-slate-950 text-slate-100 theme-dark";
     },
   },
   methods: {

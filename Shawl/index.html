@@ -10,6 +10,44 @@
     <title>Subhamoy Sinha | Cybersecurity Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <style>
+      #app.theme-dark {
+        color: #f8fafc;
+        background: #020617;
+      }
+      #app.theme-light {
+        color: #172033;
+        background: #f6f5ef;
+      }
+      #app h1,
+      #app h2,
+      #app h3,
+      #app strong {
+        color: inherit;
+      }
+      #app.theme-dark p,
+      #app.theme-dark span {
+        color: inherit;
+      }
+      #app.theme-light .text-current\/65 {
+        color: rgb(71 85 105 / 0.9);
+      }
+      #app.theme-light .text-current\/50 {
+        color: rgb(71 85 105 / 0.75);
+      }
+      #app.theme-light input,
+      #app.theme-light textarea {
+        background: rgb(255 255 255 / 0.75);
+      }
+      @media (max-width: 640px) {
+        #app h1 {
+          font-size: clamp(3rem, 14vw, 4.8rem);
+        }
+        #app h2 {
+          font-size: clamp(2.4rem, 11vw, 3.5rem);
+        }
+      }
+    </style>
   </head>
   <body class="bg-slate-950">
     <div
