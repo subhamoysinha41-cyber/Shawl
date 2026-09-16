@@ -27,8 +27,10 @@ const courses = [
   },
 ];
 
+const API_BASE = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+
 async function request(path, options = {}) {
-  const response = await fetch(`/api${path}`, {
+  const response = await fetch(`${API_BASE}/api${path}`, {
     headers: { "Content-Type": "application/json", ...(options.headers || {}) },
     ...options,
   });
@@ -45,10 +47,10 @@ function Brand() {
     </a>
   );
 }
-const API_BASE = import.meta.env.VITE_API_URL || "";
 
 function App() {
   const [authMode, setAuthMode] = useState("login");
+  const [authOpen, setAuthOpen] = useState(false);
   const [user, setUser] = useState(() =>
     JSON.parse(localStorage.getItem("shawl-user") || "null"),
   );
