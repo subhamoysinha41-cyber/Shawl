@@ -8,164 +8,247 @@
       content="Subhamoy Sinha - cybersecurity and web development portfolio."
     />
     <title>Subhamoy Sinha | Cybersecurity Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="#top">SS<span>.</span></a>
-      <nav aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="hello.html">Education</a>
-      </nav>
-      <button class="theme-toggle" id="theme-toggle" type="button">
-        Light mode
-      </button>
-    </header>
-    <main id="top">
-      <section class="hero page-section">
-        <div class="hero-copy">
-          <p class="eyebrow">Computer science student · Cybersecurity</p>
-          <h1>Building useful things with a security mindset.</h1>
-          <p class="lede">
-            I am Subhamoy Sinha, a B.Tech student exploring web development,
-            cybersecurity, and thoughtful digital products.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#projects">View my work</a>
-            <a class="button button-secondary" href="hello.html"
-              >Read my education</a
-            >
-          </div>
-        </div>
-        <div class="hero-card">
-          <img src="subhamoy.jpeg" alt="Portrait of Subhamoy Sinha" />
+  <body class="bg-slate-950">
+    <div
+      id="app"
+      :class="themeClasses"
+      class="min-h-screen transition-colors duration-300"
+    >
+      <header
+        class="mx-auto flex min-h-20 w-[min(1180px,calc(100%-3rem))] flex-wrap items-center justify-between gap-5 border-b border-current/15"
+      >
+        <a class="text-xl font-black tracking-widest" href="#top"
+          >SS<span class="text-lime-300">.</span></a
+        >
+        <nav
+          class="flex gap-5 overflow-x-auto text-sm"
+          aria-label="Primary navigation"
+        >
+          <a
+            class="text-current/65 transition hover:text-lime-300"
+            href="#about"
+            >About</a
+          >
+          <a
+            class="text-current/65 transition hover:text-lime-300"
+            href="#skills"
+            >Skills</a
+          >
+          <a
+            class="text-current/65 transition hover:text-lime-300"
+            href="#projects"
+            >Projects</a
+          >
+          <a
+            class="text-current/65 transition hover:text-lime-300"
+            href="hello.html"
+            >Education</a
+          >
+        </nav>
+        <button
+          class="border border-current/20 px-3 py-2 text-xs transition hover:border-lime-300 hover:text-lime-300"
+          type="button"
+          @click="toggleTheme"
+        >
+          {{ lightMode ? "Dark mode" : "Light mode" }}
+        </button>
+      </header>
+
+      <main id="top" class="mx-auto w-[min(1180px,calc(100%-3rem))]">
+        <section
+          class="grid min-h-[650px] items-center gap-12 py-24 lg:grid-cols-[1.2fr_.8fr]"
+        >
           <div>
-            <strong>Available for collaboration</strong
-            ><span>Web · Security · Learning</span>
+            <p
+              class="mb-4 text-xs font-bold uppercase tracking-[.18em] text-lime-300"
+            >
+              Computer science student · Cybersecurity
+            </p>
+            <h1
+              class="max-w-4xl font-serif text-6xl leading-[.94] tracking-[-.05em] sm:text-7xl lg:text-[7rem]"
+            >
+              Building useful things with a security mindset.
+            </h1>
+            <p class="mt-7 max-w-xl text-lg text-current/65">
+              I am Subhamoy Sinha, a B.Tech student exploring web development,
+              cybersecurity, and thoughtful digital products.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a
+                class="bg-lime-300 px-5 py-3 font-semibold text-slate-950 transition hover:bg-white"
+                href="#projects"
+                >View my work</a
+              >
+              <a
+                class="border border-lime-300 px-5 py-3 font-semibold text-lime-300 transition hover:bg-lime-300 hover:text-slate-950"
+                href="hello.html"
+                >Read my education</a
+              >
+            </div>
           </div>
-        </div>
-      </section>
-      <section class="page-section split-section" id="about">
-        <div>
-          <p class="eyebrow">01 / About</p>
-          <h2>Curious by default, practical by design.</h2>
-        </div>
-        <div class="section-copy">
-          <p>
-            I am pursuing Computer Science and Engineering with a focus on Cyber
-            Security at Netaji Subhash Engineering College.
-          </p>
-          <p>
-            My work combines front-end craft with an interest in secure systems,
-            clear interfaces, and projects that solve real problems.
-          </p>
-        </div>
-      </section>
-      <section class="page-section" id="skills">
-        <p class="eyebrow">02 / Skills</p>
-        <div class="skills-grid">
-          <article>
-            <span>01</span>
-            <h3>Web development</h3>
-            <p>
-              HTML, CSS, JavaScript, responsive interfaces, and GitHub Pages.
-            </p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Security foundations</h3>
-            <p>
-              Cybersecurity fundamentals, safe design, and practical analysis.
-            </p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Working style</h3>
-            <p>
-              Problem solving, communication, teamwork, and continuous learning.
-            </p>
-          </article>
-        </div>
-      </section>
-      <section class="page-section" id="projects">
-        <div class="section-heading">
-          <p class="eyebrow">03 / Selected work</p>
-          <span>2026</span>
-        </div>
-        <div class="project-list">
-          <article class="project-row">
-            <span>01</span>
-            <div>
-              <h3>Personal portfolio</h3>
-              <p>
-                A focused portfolio for sharing my work, education, and goals.
-              </p>
+          <div class="rotate-2 bg-current/10 p-4">
+            <img
+              class="aspect-[4/5] w-full object-cover saturate-75"
+              src="subhamoy.jpeg"
+              alt="Portrait of Subhamoy Sinha"
+            />
+            <div class="grid gap-1 px-1 pb-1 pt-4">
+              <strong>Available for collaboration</strong
+              ><span class="text-sm text-current/65"
+                >Web · Security · Learning</span
+              >
             </div>
-            <a href="hello.html">Explore ↗</a>
-          </article>
-          <article class="project-row">
-            <span>02</span>
-            <div>
-              <h3>Shawl Academy</h3>
-              <p>
-                An education platform with authentication, learning goals, and
-                backend services.
-              </p>
-            </div>
-            <a href="edu.html">Visit ↗</a>
-          </article>
-          <article class="project-row">
-            <span>03</span>
-            <div>
-              <h3>Cybersecurity projects</h3>
-              <p>
-                Experiments and tools built while learning how systems can be
-                made safer.
-              </p>
-            </div>
-            <a href="#contact">Discuss ↗</a>
-          </article>
-        </div>
-      </section>
-      <section class="page-section contact-section" id="contact">
-        <div>
-          <p class="eyebrow">04 / Contact</p>
-          <h2>Have a project in mind?</h2>
-          <p class="section-copy">
-            Send a note about an idea, collaboration, or opportunity.
+          </div>
+        </section>
+
+        <section
+          id="about"
+          class="grid gap-10 border-t border-current/15 py-24 lg:grid-cols-2 lg:gap-20"
+        >
+          <div>
+            <p
+              class="mb-4 text-xs font-bold uppercase tracking-[.18em] text-lime-300"
+            >
+              01 / About
+            </p>
+            <h2 class="font-serif text-5xl leading-none tracking-[-.04em]">
+              Curious by default, practical by design.
+            </h2>
+          </div>
+          <div class="max-w-xl space-y-4 text-current/65">
+            <p>
+              I am pursuing Computer Science and Engineering with a focus on
+              Cyber Security at Netaji Subhash Engineering College.
+            </p>
+            <p>
+              My work combines front-end craft with an interest in secure
+              systems, clear interfaces, and projects that solve real problems.
+            </p>
+          </div>
+        </section>
+
+        <section id="skills" class="py-24">
+          <p
+            class="mb-5 text-xs font-bold uppercase tracking-[.18em] text-lime-300"
+          >
+            02 / Skills
           </p>
-        </div>
-        <form class="contact-form" id="contact-form">
-          <input id="name" name="name" placeholder="Your name" required />
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Email address"
-            required
-          />
-          <input id="subject" name="subject" placeholder="Subject" required />
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            placeholder="Tell me a little more"
-            required
-          ></textarea>
-          <button class="button button-primary" type="submit">
-            Send message
-          </button>
-          <p class="form-status" id="form-status" role="status"></p>
-        </form>
-      </section>
-    </main>
-    <footer class="site-footer">
-      <span>Subhamoy Sinha</span
-      ><a href="mailto:subhamoysinha41@gmail.com">subhamoysinha41@gmail.com</a
-      ><a href="https://github.com/subhamoysinha41-cyber/Shawl">GitHub ↗</a>
-    </footer>
-    <script src="index.js" defer></script>
+          <div class="grid gap-px bg-current/15 md:grid-cols-3">
+            <article
+              v-for="skill in skills"
+              :key="skill.number"
+              class="min-h-56 bg-inherit p-6"
+            >
+              <span class="text-sm text-lime-300">{{ skill.number }}</span>
+              <h3 class="mt-10 text-xl font-bold">{{ skill.title }}</h3>
+              <p class="mt-3 text-current/65">{{ skill.text }}</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="projects" class="py-24">
+          <div
+            class="flex items-center justify-between border-b border-current/15 pb-4"
+          >
+            <p
+              class="text-xs font-bold uppercase tracking-[.18em] text-lime-300"
+            >
+              03 / Selected work
+            </p>
+            <span class="text-sm text-current/50">2026</span>
+          </div>
+          <div>
+            <article
+              v-for="project in projects"
+              :key="project.number"
+              class="grid gap-4 border-b border-current/15 py-6 md:grid-cols-[4rem_1fr_auto] md:items-center"
+            >
+              <span class="text-sm text-lime-300">{{ project.number }}</span>
+              <div>
+                <h3 class="text-xl font-bold">{{ project.title }}</h3>
+                <p class="mt-1 text-current/65">{{ project.text }}</p>
+              </div>
+              <a class="text-lime-300 hover:text-white" :href="project.href"
+                >{{ project.action }} ↗</a
+              >
+            </article>
+          </div>
+        </section>
+
+        <section
+          id="contact"
+          class="grid gap-10 border-t border-current/15 py-24 lg:grid-cols-2 lg:gap-20"
+        >
+          <div>
+            <p
+              class="mb-4 text-xs font-bold uppercase tracking-[.18em] text-lime-300"
+            >
+              04 / Contact
+            </p>
+            <h2 class="font-serif text-5xl leading-none tracking-[-.04em]">
+              Have a project in mind?
+            </h2>
+            <p class="mt-6 max-w-md text-current/65">
+              Send a note about an idea, collaboration, or opportunity.
+            </p>
+          </div>
+          <form class="grid gap-3" @submit.prevent="submitContact">
+            <input
+              v-model="form.name"
+              class="border border-current/20 bg-current/10 px-4 py-3 text-current outline-none placeholder:text-current/45 focus:border-lime-300"
+              name="name"
+              placeholder="Your name"
+              required
+            /><input
+              v-model="form.email"
+              class="border border-current/20 bg-current/10 px-4 py-3 text-current outline-none placeholder:text-current/45 focus:border-lime-300"
+              name="email"
+              type="email"
+              placeholder="Email address"
+              required
+            /><input
+              v-model="form.subject"
+              class="border border-current/20 bg-current/10 px-4 py-3 text-current outline-none placeholder:text-current/45 focus:border-lime-300"
+              name="subject"
+              placeholder="Subject"
+              required
+            /><textarea
+              v-model="form.message"
+              class="border border-current/20 bg-current/10 px-4 py-3 text-current outline-none placeholder:text-current/45 focus:border-lime-300"
+              name="message"
+              rows="5"
+              placeholder="Tell me a little more"
+              required
+            ></textarea
+            ><button
+              class="justify-self-start bg-lime-300 px-5 py-3 font-semibold text-slate-950 transition hover:bg-white"
+              type="submit"
+            >
+              {{ sending ? "Sending..." : "Send message" }}
+            </button>
+            <p class="min-h-6 text-sm text-lime-300" role="status">
+              {{ status }}
+            </p>
+          </form>
+        </section>
+      </main>
+
+      <footer
+        class="mx-auto flex w-[min(1180px,calc(100%-3rem))] flex-wrap justify-between gap-4 border-t border-current/15 py-8 text-sm text-current/65"
+      >
+        <span>Subhamoy Sinha</span
+        ><a class="hover:text-lime-300" href="mailto:subhamoysinha41@gmail.com"
+          >subhamoysinha41@gmail.com</a
+        ><a
+          class="hover:text-lime-300"
+          href="https://github.com/subhamoysinha41-cyber/Shawl"
+          >GitHub ↗</a
+        >
+      </footer>
+    </div>
+    <script src="index.js"></script>
   </body>
 </html>
