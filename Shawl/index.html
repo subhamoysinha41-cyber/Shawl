@@ -11,56 +11,56 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <style>
-      body.theme-dark {
+      .theme-dark {
         color: #f8fafc !important;
         background: #020617;
       }
-      body.theme-light {
+      .theme-light {
         color: #172033 !important;
         background: #f6f5ef;
       }
-      body.theme-dark #app h1,
-      body.theme-dark #app h2,
-      body.theme-dark #app h3,
-      body.theme-dark #app strong,
-      body.theme-dark #app nav a,
-      body.theme-dark #app p,
-      body.theme-dark #app span {
+      .theme-dark h1,
+      .theme-dark h2,
+      .theme-dark h3,
+      .theme-dark strong,
+      .theme-dark nav a,
+      .theme-dark p,
+      .theme-dark span {
         color: #f8fafc !important;
       }
-      body.theme-light #app h1,
-      body.theme-light #app h2,
-      body.theme-light #app h3,
-      body.theme-light #app strong,
-      body.theme-light #app nav a,
-      body.theme-light #app p,
-      body.theme-light #app span {
+      .theme-light h1,
+      .theme-light h2,
+      .theme-light h3,
+      .theme-light strong,
+      .theme-light nav a,
+      .theme-light p,
+      .theme-light span {
         color: #172033 !important;
       }
-      body.theme-dark #app * {
+      .theme-dark * {
         color: #f8fafc !important;
       }
-      body.theme-light #app * {
+      .theme-light * {
         color: #172033 !important;
       }
-      body.theme-dark #app .text-current\/65 {
+      .theme-dark .text-current\/65 {
         color: rgb(226 232 240 / 0.72) !important;
       }
-      body.theme-light #app .text-current\/65 {
+      .theme-light .text-current\/65 {
         color: rgb(71 85 105 / 0.9) !important;
       }
-      body.theme-dark #app .text-current\/50 {
+      .theme-dark .text-current\/50 {
         color: rgb(226 232 240 / 0.58) !important;
       }
-      body.theme-light #app .text-current\/50 {
+      .theme-light .text-current\/50 {
         color: rgb(71 85 105 / 0.75) !important;
       }
-      body.theme-dark #app .text-lime-300,
-      body.theme-light #app .text-lime-300 {
+      .theme-dark .text-lime-300,
+      .theme-light .text-lime-300 {
         color: #65a30d !important;
       }
-      body.theme-light #app input,
-      body.theme-light #app textarea {
+      .theme-light input,
+      .theme-light textarea {
         background: rgb(255 255 255 / 0.75);
       }
       @media (max-width: 640px) {
@@ -80,6 +80,7 @@
       class="min-h-screen transition-colors duration-300"
     >
       <header
+        :class="themeClasses"
         class="mx-auto flex min-h-20 w-[min(1180px,calc(100%-3rem))] flex-wrap items-center justify-between gap-5 border-b border-current/15"
       >
         <a class="text-xl font-black tracking-widest" href="#top"
@@ -119,7 +120,11 @@
         </button>
       </header>
 
-      <main id="top" class="mx-auto w-[min(1180px,calc(100%-3rem))]">
+      <main
+        id="top"
+        :class="themeClasses"
+        class="mx-auto w-[min(1180px,calc(100%-3rem))]"
+      >
         <section
           class="grid min-h-[650px] items-center gap-12 py-24 lg:grid-cols-[1.2fr_.8fr]"
         >
@@ -299,6 +304,7 @@
       </main>
 
       <footer
+        :class="themeClasses"
         class="mx-auto flex w-[min(1180px,calc(100%-3rem))] flex-wrap justify-between gap-4 border-t border-current/15 py-8 text-sm text-current/65"
       >
         <span>Subhamoy Sinha</span

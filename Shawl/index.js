@@ -62,6 +62,15 @@ createApp({
     applyTheme() {
       document.body.classList.toggle("theme-light", this.lightMode);
       document.body.classList.toggle("theme-dark", !this.lightMode);
+      const background = this.lightMode ? "#f6f5ef" : "#020617";
+      const foreground = this.lightMode ? "#172033" : "#f8fafc";
+      document.body.style.backgroundColor = background;
+      document.body.style.color = foreground;
+      const app = document.querySelector("#app");
+      if (app) {
+        app.style.backgroundColor = background;
+        app.style.color = foreground;
+      }
     },
     toggleTheme() {
       this.lightMode = !this.lightMode;
