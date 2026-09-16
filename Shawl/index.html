@@ -12,29 +12,41 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <style>
       #app.theme-dark {
-        color: #f8fafc;
+        color: #f8fafc !important;
         background: #020617;
       }
       #app.theme-light {
-        color: #172033;
+        color: #172033 !important;
         background: #f6f5ef;
       }
-      #app h1,
-      #app h2,
-      #app h3,
-      #app strong {
-        color: inherit;
-      }
+      #app.theme-dark h1,
+      #app.theme-dark h2,
+      #app.theme-dark h3,
+      #app.theme-dark strong,
+      #app.theme-dark nav a,
       #app.theme-dark p,
       #app.theme-dark span {
-        color: inherit;
+        color: #f8fafc !important;
       }
+      #app.theme-light h1,
+      #app.theme-light h2,
+      #app.theme-light h3,
+      #app.theme-light strong,
+      #app.theme-light nav a,
+      #app.theme-light p,
+      #app.theme-light span {
+        color: #172033 !important;
+      }
+      #app.theme-dark .text-current\/65 { color: rgb(226 232 240 / 0.72) !important; }
       #app.theme-light .text-current\/65 {
-        color: rgb(71 85 105 / 0.9);
+        color: rgb(71 85 105 / 0.9) !important;
       }
+      #app.theme-dark .text-current\/50 { color: rgb(226 232 240 / 0.58) !important; }
       #app.theme-light .text-current\/50 {
-        color: rgb(71 85 105 / 0.75);
+        color: rgb(71 85 105 / 0.75) !important;
       }
+      #app.theme-dark .text-lime-300,
+      #app.theme-light .text-lime-300 { color: #65a30d !important; }
       #app.theme-light input,
       #app.theme-light textarea {
         background: rgb(255 255 255 / 0.75);
