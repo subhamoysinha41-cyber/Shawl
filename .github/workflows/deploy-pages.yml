@@ -35,10 +35,14 @@ jobs:
         env:
           VITE_API_URL: ${{ vars.VITE_API_URL }}
         run: npm run build
-      - name: Prepare static education site
+      - name: Prepare static portfolio site
         run: |
           rm -rf client-dist/*
-          cp edu.html client-dist/index.html
+          cp index.html client-dist/index.html
+          cp hello.html client-dist/hello.html
+          cp index.js client-dist/index.js
+          cp style.css client-dist/style.css
+          cp subhamoy.jpeg client-dist/subhamoy.jpeg
           cp edu.html client-dist/edu.html
           cp edu.css client-dist/edu.css
           mkdir -p client-dist/assets

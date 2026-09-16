@@ -7,7 +7,11 @@ RUN npm ci
 COPY . .
 RUN npm run build
 RUN rm -rf client-dist/* \
-	&& cp edu.html client-dist/index.html \
+	&& cp index.html client-dist/index.html \
+	&& cp hello.html client-dist/hello.html \
+	&& cp index.js client-dist/index.js \
+	&& cp style.css client-dist/style.css \
+	&& cp subhamoy.jpeg client-dist/subhamoy.jpeg \
 	&& cp edu.html client-dist/edu.html \
 	&& cp edu.css client-dist/edu.css \
 	&& mkdir -p client-dist/assets \
