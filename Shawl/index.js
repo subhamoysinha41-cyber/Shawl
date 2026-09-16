@@ -59,8 +59,13 @@ createApp({
     },
   },
   methods: {
+    applyTheme() {
+      document.body.classList.toggle("theme-light", this.lightMode);
+      document.body.classList.toggle("theme-dark", !this.lightMode);
+    },
     toggleTheme() {
       this.lightMode = !this.lightMode;
+      this.applyTheme();
       localStorage.setItem(
         "shawl-portfolio-theme",
         this.lightMode ? "light" : "dark",
@@ -87,5 +92,8 @@ createApp({
         this.sending = false;
       }
     },
+  },
+  mounted() {
+    this.applyTheme();
   },
 }).mount("#app");
