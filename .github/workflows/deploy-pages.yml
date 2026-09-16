@@ -35,8 +35,15 @@ jobs:
         env:
           VITE_API_URL: ${{ vars.VITE_API_URL }}
         run: npm run build
-      - name: Add edu.html entry URL
-        run: cp client-dist/index.html client-dist/edu.html
+      - name: Prepare static education site
+        run: |
+          rm -rf client-dist/*
+          cp edu.html client-dist/index.html
+          cp edu.html client-dist/edu.html
+          cp edu.css client-dist/edu.css
+          mkdir -p client-dist/assets
+          cp -R assets/images client-dist/assets/
+          cp -R assets/js client-dist/assets/
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
