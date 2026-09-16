@@ -1,0 +1,227 @@
+/* ==========================================================================
+   1. SYSTEM CONFIGURATION & VARS
+   ========================================================================== */
+:root {
+  --sys-bg: #05070c;         /* Terminal dark obsidian */
+  --sys-surface: #0a0f1d;    /* Inner terminal console */
+  --neon-matrix: #10b981;    /* Hacker green accent */
+  --neon-alert: #f43f5e;     /* Terminal alert pink/red */
+  --text-bright: #e2e8f0;    /* Crisp code text */
+  --text-dark: #64748b;      /* Comment/muted text */
+  --sys-border: 1px solid #1e293b;
+  --terminal-border: 2px solid #10b981;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  background-color: var(--sys-bg);
+  color: var(--text-bright);
+  line-height: 1.5;
+  padding: 3rem 1.5rem;
+}
+
+/* Hard reset for all bright, raw inline background colors in your HTML */
+div[style*="background-color"], 
+section div {
+  background-color: var(--sys-surface) !important;
+  border: var(--sys-border);
+  border-left: 3px solid var(--neon-matrix);
+  border-radius: 4px;
+  margin: 1.5rem 0;
+  color: var(--text-bright) !important;
+}
+
+/* Enclosing everything into a high-security terminal panel layout */
+.resume-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--sys-surface);
+  border: var(--terminal-border);
+  border-radius: 6px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+}
+
+/* ==========================================================================
+   2. TERMINAL COMMAND FONTS & HYPERLINKS
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--neon-matrix) !important; /* Forces terminal matrix green */
+  font-weight: normal;
+  margin-bottom: 0.5rem;
+}
+
+/* Mimic command prompt lines */
+h1::before, h2::before {
+  content: "subhamoy@nsec:~$ ";
+  color: var(--text-dark);
+  font-size: 0.85rem;
+}
+
+h1 { font-size: 1.75rem; border-bottom: 1px dashed var(--neon-matrix); padding-bottom: 0.5rem; }
+h2 { font-size: 1.25rem; margin-top: 2rem; text-transform: uppercase; }
+
+p {
+  color: var(--text-bright);
+  margin-bottom: 1rem;
+}
+
+/* Interactive Digital Encryption Links */
+a {
+  color: var(--sys-bg);
+  background-color: var(--neon-matrix);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+  margin: 0.25rem 0;
+}
+
+a:hover {
+  background-color: var(--text-bright);
+  color: var(--sys-bg);
+  box-shadow: 0 0 10px rgba(226, 232, 240, 0.5);
+}
+
+/* Specific styling for external downloads/links */
+a[href*="visualstudio"], a[href*="instagram"] {
+  background-color: transparent;
+  color: var(--neon-matrix);
+  border: 1px solid var(--neon-matrix);
+}
+
+a[href*="visualstudio"]:hover, a[href*="instagram"]:hover {
+  background-color: var(--neon-matrix);
+  color: var(--sys-bg);
+}
+
+/* ==========================================================================
+   3. SECURE TIMELINE LAYOUT (EDUCATION & GRADES)
+   ========================================================================== */
+.resume-section {
+  margin-top: 1.5rem;
+}
+
+.education-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(16, 185, 129, 0.02);
+  border: var(--sys-border);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 0.25rem;
+}
+
+.degree strong {
+  color: var(--text-bright);
+}
+
+.date {
+  color: var(--neon-alert);
+}
+
+.item-sub {
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.separator {
+  color: #334155;
+  margin: 0 0.25rem;
+}
+
+.grade strong {
+  color: var(--neon-matrix);
+  background: rgba(16, 185, 129, 0.1);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+
+.coursework {
+  font-size: 0.9rem;
+  color: var(--text-bright);
+  margin-top: 0.75rem;
+  border-left: 2px dashed var(--text-dark);
+  padding-left: 0.75rem;
+}
+
+.bullet-square {
+  color: var(--neon-alert);
+}
+
+/* ==========================================================================
+   4. DATA LOGS (LISTS, ARRAYS & SCRIPTS)
+   ========================================================================== */
+ul {
+  list-style: none; /* Strip standard bullets for data arrows */
+  margin-bottom: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+  position: relative;
+  padding-left: 1.2rem;
+  color: var(--text-bright);
+}
+
+li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--neon-matrix);
+}
+
+/* Target your Skills items to look like code modules */
+.resume-section ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-left: 0;
+}
+
+.resume-section ul li {
+  padding: 0.2rem 0.6rem;
+  background: #111827;
+  border: 1px solid #374151;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.resume-section ul li::before {
+  content: "";
+}
+
+/* Matrix Asset Framing */
+img {
+  max-width: 100%;
+  height: auto;
+  filter: grayscale(40%) contrast(110%);
+  border: var(--sys-border);
+  border-radius: 4px;
+  margin: 1.5rem 0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px dashed #1e293b;
+  margin: 2rem 0;
+}
+
+pre {
+  background: transparent;
+}

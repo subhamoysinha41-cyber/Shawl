@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap");
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --color-ink: #16231f;
+  --color-muted: #66736d;
+  --color-paper: #f5f3ed;
+  --color-cream: #e9e4d8;
+  --color-lime: #d9f27e;
+  --color-coral: #f27c4c;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply m-0 bg-paper font-sans text-ink antialiased;
+  }
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .page-width {
+    @apply mx-auto w-[min(1160px,calc(100%-2rem))] md:w-[min(1160px,calc(100%-4rem))];
+  }
+  .eyebrow {
+    @apply mb-5 text-[11px] font-bold uppercase tracking-[.2em] text-coral;
+  }
+  .button {
+    @apply inline-flex items-center gap-4 bg-ink px-5 py-3.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-coral focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2;
+  }
+  .field {
+    @apply w-full border-0 border-b border-ink/15 bg-transparent px-0 py-3 text-ink outline-none placeholder:text-muted/70 focus:border-coral;
+  }
+}

@@ -1,0 +1,41 @@
+name: Shawl CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Shawl
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: Shawl/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Build React client
+        run: npm run build
+      - name: Check backend syntax
+        run: node --check server.js && node --check database.js
+      - name: Smoke test health endpoint
+        shell: bash
+        run: |
+          node server.js > /tmp/shawl-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid' EXIT
+          for attempt in {1..20}; do
+            if curl --fail --silent http://localhost:5000/api/health; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/shawl-server.log
+          exit 1

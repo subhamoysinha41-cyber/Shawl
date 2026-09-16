@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: shawl-academy
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: shawl-data
+      mountPath: /var/data
+      sizeGB: 1

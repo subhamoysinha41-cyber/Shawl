@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subhamoy Sinha | Cyber Security & CSE Portfolio</title>
+    <style>
+        /* Design Tokens */
+        :root {
+            --primary: #1A5FB4;
+            --primary-light: #edf4fc;
+            --dark: #1e293b;
+            --muted: #64748b;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --accent: #0f172a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--dark);
+            line-height: 1.5;
+            display: flex;
+        }
+
+        /* Sidebar Navigation Left Frame */
+        aside {
+            width: 320px;
+            background-color: var(--accent);
+            color: #ffffff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            padding: 50px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .brand-name h1 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .brand-name p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .sidebar-contact {
+            margin-top: 40px;
+        }
+
+        .contact-pill {
+            display: block;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 13.5px;
+            margin-bottom: 12px;
+            word-break: break-all;
+        }
+
+        .contact-pill:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .aside-footer {
+            font-size: 12px;
+            color: #64748b;
+            border-top: 1px solid #334155;
+            padding-top: 15px;
+            font-style: italic;
+        }
+
+        /* Main Scrollable Canvas Area */
+        main {
+            margin-left: 320px;
+            flex: 1;
+            padding: 60px 50px;
+            max-width: 1000px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-heading {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-heading::after {
+            content: "";
+            height: 1px;
+            background-color: var(--border);
+            flex: 1;
+        }
+
+        /* Objective Box Component */
+        .objective-card {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            font-size: 15.5px;
+            color: #0f172a;
+            text-align: justify;
+        }
+
+        /* Badges Component for Skills */
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .skills-row {
+            display: flex;
+            align-items: center;
+        }
+
+        .skills-category {
+            width: 120px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .badges-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .badge {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 20px;
+            color: var(--dark);
+        }
+
+        /* Project Dynamic Cards Framework */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .project-card h3 {
+            font-size: 16px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .project-bullets {
+            list-style: none;
+        }
+
+        .project-bullets li {
+            font-size: 13px;
+            color: #475569;
+            margin-bottom: 8px;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .project-bullets li::before {
+            content: "■";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 9px;
+        }
+
+        /* Timeline block rows */
+        .timeline-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-year {
+            color: var(--primary);
+        }
+
+        .timeline-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .timeline-sub {
+            font-size: 12.5px;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        /* Plain Text Flex Rows List */
+        .text-list {
+            list-style: none;
+        }
+
+        .text-list li {
+            font-size: 13.5px;
+            padding: 12px 16px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            color: #334155;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .text-list li::before {
+            content: "■";
+            color: var(--primary);
+            position: absolute;
+            left: 14px;
+            top: 15px;
+            font-size: 9px;
+        }
+
+        /* Personal Bio Fields Box */
+        .details-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 15px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            font-size: 13.5px;
+        }
+
+        .details-entry span {
+            display: block;
+        }
+
+        .details-label {
+            font-weight: 700;
+            color: var(--muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        /* Responsive Breakpoints config */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            aside {
+                position: relative;
+                width: 100%;
+                padding: 40px 24px;
+            }
+            main {
+                margin-left: 0;
+                padding: 40px 24px;
+                width: 100%;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .details-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SIDEBAR NAVIGATION LEFT FRAME -->
+    <aside>
+        <div>
+            <div class="brand-name">
+                <h1>SUBHAMOY SINHA</h1>
+                <p>B.Tech CSE (Cyber Security) Student</p>
+                <p style="color: #64748b; font-size: 12px; margin-top: 4px;">MAKAUT · Batch 2025–2029</p>
+            </div>
+            
+            <div class="sidebar-contact">
+                <a href="mailto:subhamoysinha41@gmail.com" class="contact-pill">subhamoysinha41@gmail.com</a>
+                <a href="tel:+9641497933" class="contact-pill">+91 9641497933</a>
+                <span class="contact-pill" style="text-decoration:none; color: #94a3b8;">Kolkata, West Bengal</span>
+                <a href="https://linkedin.com" target="_blank" class="contact-pill">://linkedin.com</a>
+            </div>
+        </div>
+
+        <div class="aside-footer">
+            References available on request.<br>Open to internship opportunities in Cyber Security, Web Development, and Software Engineering.
+        </div>
+    </aside>
+
+    <!-- MAIN SCROLLABLE CANVAS AREA -->
+    <main>
+
+        <!-- CAREER OBJECTIVE -->
+        <section>
+            <h2 class="section-heading">CAREER OBJECTIVE</h2>
+            <div class="objective-card">
+                Results-driven first-year B.Tech Computer Science & Engineering student specializing in <strong>Cyber Security</strong>, with a current SGPA of <strong>8.0</strong>. Eager to secure an internship where I can apply hands-on skills in C/C++, web development, and security fundamentals to deliver real business value. Known for adaptability, analytical thinking, and a proactive attitude toward continuous learning and team collaboration.
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section>

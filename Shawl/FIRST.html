@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Task Core</title>
+    <link rel="stylesheet" href="first.css">
+    
+</head>
+<body>
+    <div id="notification-banner" class="notification hidden"></div>
+
+    <!-- Auth Section Layout -->
+    <div id="auth-screen" class="container">
+        <div class="auth-box">
+            <h2 id="auth-title">Account Sign In</h2>
+            <form id="auth-form">
+                <div class="form-group hidden" id="username-group">
+                    <label for="auth-username">Username</label>
+                    <input type="text" id="auth-username" autocomplete="username" placeholder="Enter your username" title="Username">
+                </div>
+                <div class="form-group">
+                    <label for="auth-email">Email Address</label>
+                    <input type="email" id="auth-email" required autocomplete="email" placeholder="you@example.com" title="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="auth-password" required autocomplete="current-password" placeholder="Enter your password" title="Password">
+                </div>
+                <button type="submit" id="auth-submit-btn" class="btn btn-block">Log In</button>
+            </form>
+            <p class="toggle-text">
+                <span id="auth-toggle-msg">New to the platform?</span> 
+                <a href="#" id="auth-toggle-link">Create Account</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Protected Application Space Layout -->
+    <div id="app-screen" class="container hidden">
+        <header class="app-header">
+            <h2>Welcome, <span id="user-display">User</span>!</h2>
+            <button class="btn btn-danger" onclick="logout()">Sign Out</button>
+        </header>
+
+        <main class="workspace-grid">
+            <!-- Creation Interface Card -->
+            <section class="card">
+                <h3>Create Management Task</h3>
+                <form id="task-form">
+                    <div class="form-group">
+                        <label>Task Summary Title</label>
+                        <input type="text" id="task-title" required placeholder="Ex: Update financial data matrices">
+                    </div>
+                    <div class="form-group">
+                        <label>Task Description Context</label>
+                        <textarea id="task-desc" rows="3" placeholder="Enter explicit notes..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-block">Add to Backlog</button>
+                </form>
+            </section>
+
+            <!-- Real-time Reactive Dashboard Stack -->
+            <section class="card">
+                <h3>Current Active Backlog</h3>
+                <div id="task-list" class="task-list-container">
+                    <!-- Dynamic JavaScript Node Injectors Populate Elements Here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
