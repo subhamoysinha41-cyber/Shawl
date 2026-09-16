@@ -36,7 +36,7 @@ The repository includes `Dockerfile`, `render.yaml`, `.github/workflows/ci.yml`,
 
 After GitHub Pages is enabled for the repository with **GitHub Actions** as the source, the public website is:
 
-`https://subhamoysinha41-cyber.github.io/Shawl/`
+`https://subhamoysinha41-cyber.github.io/subhamoy/`
 
 The same React website is also available at `/edu.html` on that Pages site. GitHub Pages hosts the frontend only. Deploy the Docker service to Render (using `render.yaml`) for the Express API and SQLite database, then set the frontend API URL for a hosted backend. The local development proxy continues to use `http://localhost:5000`.
 
