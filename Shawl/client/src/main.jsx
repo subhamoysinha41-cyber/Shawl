@@ -45,11 +45,10 @@ function Brand() {
     </a>
   );
 }
-  const API_BASE = import.meta.env.VITE_API_URL || "";
+const API_BASE = import.meta.env.VITE_API_URL || "";
 
 function App() {
-    const response = await fetch(`${API_BASE}/api${path}`, { headers: { "Content-Type": "application/json", ...(options.headers || {}) }, ...options });
-    [authMode, setAuthMode] = useState("login");
+  const [authMode, setAuthMode] = useState("login");
   const [user, setUser] = useState(() =>
     JSON.parse(localStorage.getItem("shawl-user") || "null"),
   );
